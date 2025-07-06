@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  llm-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.llm
+    ports:
+      - "8765:8765"
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      # Mount Hugging Face cache to avoid re-downloading models
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    restart: unless-stopped 

@@ -1,0 +1,14 @@
+# For NVIDIA GPUs (CUDA 12.1, e.g. RTX 4070 Super)
+# Install torch/torchaudio with:
+# pip install --index-url https://download.pytorch.org/whl/cu121 torch==2.3.0+cu121 torchaudio==2.3.0+cu121 --extra-index-url https://pypi.org/simple
+
+numpy<2
+sounddevice>=0.4.6
+soundfile>=0.12
+transformers>=4.37
+accelerate>=0.25
+protobuf>=3.20
+sentencepiece>=0.1.99
+openai-whisper>=20231121
+torchaudio==2.3.0+cu121
+colorama>=0.4.6 
